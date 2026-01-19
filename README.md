@@ -1,89 +1,122 @@
-# E‑Commerce Performance Analysis Dashboard
+E-Commerce Performance Analysis 🛒
+Project Overview
 
-## Project Overview
+This project analyzes e-commerce sales data to understand overall business performance, product-level revenue contribution, pricing behaviour, and refund patterns.
 
-This project focuses on analysing an e‑commerce dataset to understand sales performance, customer purchasing behaviour, and refund patterns. The goal was to simulate a real‑world analytics workflow starting from raw data, performing analysis using SQL and Python, and finally presenting insights through an interactive Power BI dashboard.
+The analysis follows an end-to-end data analytics workflow, starting from raw CSV files and using SQL, Python, and Power BI to generate actionable business insights.
 
-The analysis answers practical business questions such as:
+Objectives
 
-* How much revenue is the business generating?
-* Which products contribute the most to sales and refunds?
-* How do pricing and sales volume vary across products?
-* What is the overall refund rate and how does it differ by product?
+Evaluate overall sales performance using key business KPIs
 
-This project was built end‑to‑end, covering data extraction, cleaning, transformation, analysis, and visualization.
+Identify top-performing and underperforming products
 
----
+Analyse product pricing and sales volume relationships
 
-## Tools & Technologies Used
+Understand refund behaviour and potential revenue leakage
 
-* **SQL (SQLite):** Data analysis, aggregations, KPI calculations
-* **Python:** Data cleaning and exporting transformed datasets
-* **Power BI:** Interactive dashboard and data visualization
-* **CSV:** Raw and cleaned data storage
+Build an interactive and professional Power BI dashboard
 
----
+Dataset
 
-## Project Workflow
+Source: Maven Analytics (Toy Store E-commerce Dataset)
 
-1. **Data Source**
-   The raw dataset was available in CSV format and contained information related to orders, products, pricing, and refunds.
+Initial Format: CSV files
 
-2. **SQL Analysis (SQLite)**
+Data Scope:
 
-   * Imported raw CSV files into a SQLite database
-   * Wrote SQL queries to calculate key metrics such as:
+Website sessions
 
-     * Total revenue
-     * Average order value (AOV)
-     * Product‑level revenue
-     * Sales volume by product
-     * Refund value and refund rate
-   * Queries were structured to reflect real business questions
+Orders
 
-3. **Python Data Processing**
+Order items
 
-   * Used Python to execute SQL queries and extract results
-   * Cleaned and formatted query outputs
-   * Exported final, analysis‑ready datasets as CSV files
+Products
 
-4. **Power BI Visualization**
+Refunds
 
-   * Imported cleaned CSV files into Power BI
-   * Built a professional dashboard with:
+Tools Used
 
-     * Executive KPIs
-     * Product‑level performance charts
-     * Refund analysis
-     * Interactive slicers for filtering
+SQLite (SQL) – Data aggregation, joins, KPI calculations
 
----
+Python (Pandas) – Data validation, cleaning, and CSV exports
 
-## Dashboard Highlights
+Power BI – Interactive dashboard and data visualization
 
-The Power BI dashboard provides:
+GitHub – Project version control and portfolio hosting
 
-* **Executive KPIs:** Total Revenue, Average Order Value, Refund Rate
-* **Revenue by Product:** Identifies top and low‑performing products
-* **Sales Volume Analysis:** Compares quantity sold across products
-* **Refund Analysis:** Highlights refund value and rate by product
-* **Interactive Filtering:** Allows users to explore data by product
+Key KPIs
 
-A preview image of the dashboard is included in the repository for quick reference.
+Total Revenue
 
----
+Average Order Value (AOV)
 
-## Key Learnings
+Total Website Sessions
 
-* Applying SQL to solve business‑driven analytical problems
-* Structuring queries for clarity and reusability
-* Using Python as a bridge between databases and BI tools
-* Designing clean, consistent, and professional dashboards in Power BI
-* Presenting insights in a format suitable for business stakeholders
+Total Orders
 
----
+Conversion Rate
 
-## Author
+Refund Rate
 
-**Vaibhav**
-Data Analyst
+Product-level Revenue and Sales Volume
+
+Power BI Dashboard
+
+An interactive Power BI dashboard was created using cleaned and analysis-ready datasets exported from Python.
+
+📊 Key visuals include:
+
+Executive KPI cards (Revenue, AOV, Conversion Rate)
+
+Revenue by Product
+
+Units Sold by Product
+
+Average Selling Price by Product
+
+Refund Value and Refund Rate by Product
+
+Product-level slicer for interactive analysis
+
+SQL Analysis
+
+SQL (SQLite) was used to join relational tables and calculate KPIs before visualization.
+
+Sample SQL Query – Conversion Rate
+
+SELECT
+  COUNT(DISTINCT ws.website_session_id) AS total_sessions,
+  COUNT(DISTINCT o.order_id) AS total_orders,
+  ROUND(
+    COUNT(DISTINCT o.order_id) * 1.0 /
+    COUNT(DISTINCT ws.website_session_id), 4
+  ) AS conversion_rate
+FROM website_sessions ws
+LEFT JOIN orders o
+  ON ws.website_session_id = o.website_session_id;
+
+
+All SQL queries used in this project are available in the repository as a .sql file.
+
+Key Insights
+
+The Original Mr. Fuzzy is the highest revenue-generating and most sold product.
+
+A small number of products contribute to the majority of total revenue.
+
+The Birthday Sugar Panda has the highest refund rate, indicating potential quality or expectation issues.
+
+Higher-priced products generally show lower refund rates.
+
+Refund analysis highlights areas of revenue leakage that can be improved.
+
+Business Recommendations
+
+Focus marketing and inventory planning on top-performing products.
+
+Investigate products with high refund rates to reduce losses.
+
+Improve product descriptions or quality checks for frequently refunded items.
+
+Diversify product offerings to reduce dependency on a single product.
