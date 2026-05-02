@@ -1,84 +1,45 @@
-# E-Commerce Performance Analysis 🛒
+# E-Commerce Performance Analysis 
 
-## Project Overview  
-This project analyzes e-commerce sales data to evaluate business performance, product contribution, and refund behavior. The analysis focuses on identifying revenue drivers, understanding pricing and sales volume patterns, and highlighting areas of potential revenue leakage through refunds.
-
-The analysis was conducted using **SQL (SQLite) for data aggregation**, **Python for data validation and export**, and **Power BI for interactive dashboarding**.
+## Key Finding 
+A small group of high-value customers drives a disproportionate share of total revenue, while a few top-performing categories contribute most of the sales. Meanwhile, several low-performing products/categories drag overall efficiency and need optimization.
 
 ----
 
-## Objectives  
-- Analyze overall sales performance and key business KPIs  
-- Identify top-performing products by revenue and sales volume  
-- Understand product pricing patterns  
-- Analyze refund value and refund rate by product  
-- Build a clean and professional Power BI dashboard for business insights  
+## Overview  
+This project analyzes e-commerce sales data to uncover patterns in revenue, customer behavior, and product performance. It transforms raw data into actionable insights to support better business decisions and growth strategies.
 
 ---
 
-## Dataset  
-Source: Maven Analytics (Toy Store E-commerce Dataset)  
-Data Format: CSV files  
-Records: Order-level and product-level transactional data  
+## Dashboard Preview
+![Dashboard](Dashboard/E-commerce%20Dashboard.png)
 
 ---
 
-## Tools Used  
-- **SQLite (SQL)** – Data aggregation, joins, and KPI calculations  
-- **Python** – Data validation, cleaning, and exporting analysis-ready datasets  
-- **Power BI** – Interactive dashboard creation and visualization  
-- **GitHub** – Project version control and portfolio hosting  
+## Key InsightsA small segment of customers contributes to a major share of total revenue, indicating high customer concentration.
+- Top product categories drive most of the sales, while several categories underperform.
+- Sales show time-based trends/seasonality, with noticeable peaks during specific periods.
+- High-value orders are fewer in number but significantly impact overall revenue.
+- Some products have low sales despite availability, highlighting opportunities for optimization or removal.
 
 ---
 
-## Key KPIs  
-- **Total Revenue**  
-- **Average Order Value (AOV)**
-- **Total Orders**
-- **Conversion Rate**
-- **Revenue by Product**
-- **Units Sold by Product**
-- **Refund Value and Refund Rate**
+## Business Impact 
+- Helps identify high-value customers, enabling targeted marketing and better customer retention.
+- Improves decision-making by highlighting top-performing and underperforming products.
+- Supports revenue optimization through data-driven sales and pricing strategies.
+- Enables better inventory management by focusing on high-demand categories.
+- Assists in planning seasonal campaigns and promotions based on sales trends.
 
 ---
 
-## Power BI Dashboard  
-An interactive Power BI dashboard was created using cleaned and aggregated datasets exported from Python.
-
-📊 Key visuals include:  
-- Executive KPI cards (Revenue, AOV, Conversion Rate)  
-- Revenue contribution by product  
-- Sales volume (units sold) by product  
-- Average selling price by product  
-- Refund value and refund rate analysis  
-- Product-level slicer for interactive filtering  
+## Tools Used 
+- SQL
+- Python
+- Power BI
 
 ---
 
-## SQL Analysis  
-SQL was used to aggregate raw transactional data and calculate business metrics before visualization.
+## Conclusion
+This project highlights how data-driven insights can improve sales performance, customer targeting, and overall business efficiency. It demonstrates the value of analytics in driving smarter decisions and sustainable growth in e-commerce.
 
-Sample SQL Query – Revenue by Product  
-```sql
-SELECT
-  p.product_name,
-  ROUND(SUM(oi.price_usd), 2) AS revenue
-FROM order_items oi
-JOIN products p
-  ON oi.product_id = p.product_id
-GROUP BY p.product_name
-ORDER BY revenue DESC;
-```
 ---
-
-## Key Insights
- - The Original Mr. Fuzzy is the highest revenue-generating and best-selling product.
- - A small number of products contribute to the majority of total revenue.
- - The Birthday Sugar Panda shows a relatively high refund rate, indicating potential quality or expectation issues.
- - Higher-priced products generally have lower refund rates, suggesting better perceived value.
-
-## Business Recommendations
- - Prioritize inventory and marketing efforts for top-performing products.
- - Investigate high-refund products to identify quality, pricing, or description gaps.
- - Use refund rate as a quality and customer satisfaction metric.
- - Reduce dependency on a single product by diversifying product offerings.
