@@ -1,4 +1,4 @@
-# E-Commerce Performance Analysis 
+# E-Commerce Performance Analysis🛒
 
 ## 🔷 Key Finding 
 A small group of high-value customers drives a disproportionate share of total revenue, while a few top-performing categories contribute most of the sales. Meanwhile, several low-performing products/categories drag overall efficiency and need optimization.
